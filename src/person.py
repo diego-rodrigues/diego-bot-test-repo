@@ -19,4 +19,3 @@ class Person:
             self.money -= money_spent
         else:
             raise Exception("Can't spend this amount of money.")
-            
