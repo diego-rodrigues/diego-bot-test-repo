@@ -32,9 +32,10 @@ jobs:
     - name: Github Action for testing the code
       run: coverage run -m unittest discover
 
-    # env:
-    #   COV_PERC: ${{ coverage json -q -o /dev/stdout | python -c 'import sys, json; print(json.load(sys.stdin)["totals"]["percent_covered"])' }}
+    - name: Github Action to calculate coverage percentage
+      run: echo "cov_perc=coverage json -q -o /dev/stdout | python -c 'import sys, json; print(json.load(sys.stdin)[\"totals\"][\"percent_covered\"])'" >> $GITHUB_ENV
 
-    - name: Github Action for code-coverage
+    -name:
       run: |
-        print $COV_PERC
+        echo "${{ env.cov_perc }}"
+
