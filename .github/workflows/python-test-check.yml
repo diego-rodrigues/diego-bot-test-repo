@@ -3,7 +3,7 @@ name: Check Python application
 on: [push]
 
 jobs:
-  build:
+  python-test-check:
     runs-on: ubuntu-latest
 
     steps:
