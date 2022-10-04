@@ -29,5 +29,12 @@ jobs:
     - name: GitHub Action for pylint
       uses: cclauss/GitHub-Action-for-pylint@0.7.0
 
-    - name: Github Action for pytest
-      run: pytest
+    - name: Github Action for testing the code
+      run: coverage run -m unittest discover
+
+    env:
+      COV_PERC: ${{ coverage json -q -o /dev/stdout | python -c 'import sys, json; print(json.load(sys.stdin)["totals"]["percent_covered"])' }}
+
+    - name: Github Action for code-coverage
+      run: |
+        print $COV_PERC
