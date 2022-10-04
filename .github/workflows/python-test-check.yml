@@ -1,8 +1,6 @@
 name: Check Python application
 
-on:
-  pull_request:
-    types: [ opened, edited, reopened ]
+on: [push]
 
 jobs:
   build:
