@@ -33,7 +33,7 @@ jobs:
       run: coverage run -m unittest discover
 
     - name: Github Action to calculate coverage percentage
-      run: echo "cov_perc_script='import sys, json; print(json.load(sys.stdin)[\"totals\"][\"percent_covered\"])' >> $GITHUB_ENV
+      run: echo "cov_perc_script='import sys, json; print(json.load(sys.stdin)["totals"]["percent_covered"])' >> $GITHUB_ENV
 
     - name: Github Action to retrieve coverage percentage
       run: |
