@@ -3,7 +3,7 @@ name: Check Python application
 on: [push]
 
 env:
-  MIN_COVERAGE_REQUIRED: 95
+  MIN_COVERAGE_REQUIRED: 80
 
 jobs:
   python-test-check:
