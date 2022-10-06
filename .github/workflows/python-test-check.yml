@@ -37,5 +37,5 @@ jobs:
 
     - name: Github Action to retrieve coverage percentage
       run: |
-        coverage json -q -o /dev/stdout | python -c ${{ env.cov_perc }}
+        coverage json -q -o /dev/stdout | python -c ${{ env.cov_perc_script }}
 
