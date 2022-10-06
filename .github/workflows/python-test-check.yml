@@ -44,6 +44,6 @@ jobs:
       run: |
         # coverage json -q -o /dev/stdout | python -c ${{ env.cov_xperc_script }} 
         # coverage json -q -o /dev/stdout | python -c 'import sys, json; input = sys.stdin; print("Coverage is: ", json.load(input)["totals"]["percent_covered"]); sys.exit(json.load(input)["totals"]["percent_covered"] > '$MIN_COVERAGE_REQUIRED')'
-        coverage json -q -o /dev/stdout | python -c 'import sys, json; perc_cov = json.load(sys.stdin)["totals"]["percent_covered"]; is_covered = perc_cov > 95; print("Coverage is: ", perc_cov); sys.exit(not is_covered)'
+        coverage json -q -o /dev/stdout | python -c 'import sys, json; perc_cov = json.load(sys.stdin)["totals"]["percent_covered"]; is_covered = perc_cov > '$MIN_COVERAGE_REQUIRED'; print("Coverage is: ", perc_cov); sys.exit(not is_covered)'
         # coverage json -q -o /dev/stdout | python -c 'import sys, json; input = sys.stdin; sys.exit(json.load(input)["totals"]["percent_covered"] > '$MIN_COVERAGE_REQUIRED')'
 
