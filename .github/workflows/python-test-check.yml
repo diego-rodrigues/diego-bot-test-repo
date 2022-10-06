@@ -21,16 +21,16 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
 
-    - name: Lint with flake8
-      run: |
-        pip install flake8
-        # stop the build if there are Python syntax errors or undefined names
-        flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
-        # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
-        flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+    # - name: Lint with flake8
+    #   run: |
+    #     pip install flake8
+    #     # stop the build if there are Python syntax errors or undefined names
+    #     flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+    #     # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
+    #     flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
 
-    - name: GitHub Action for pylint
-      uses: cclauss/GitHub-Action-for-pylint@0.7.0
+    # - name: GitHub Action for pylint
+    #   uses: cclauss/GitHub-Action-for-pylint@0.7.0
 
     - name: Github Action for testing the code
       run: coverage run -m unittest discover
@@ -43,5 +43,5 @@ jobs:
       id: total-coverage
       run: |
         # coverage json -q -o /dev/stdout | python -c ${{ env.cov_xperc_script }} 
-        coverage json -q -o /dev/stdout | python -c 'import sys, json; print(json.load(sys.stdin)[\"totals\"][\"percent_covered\"] > 95)'
+        coverage json -q -o /dev/stdout | python -c 'import sys, json; print(json.load(sys.stdin)["totals"]["percent_covered"] > 95)'
 
