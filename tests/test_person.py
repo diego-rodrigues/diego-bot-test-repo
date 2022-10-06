@@ -21,18 +21,18 @@ class PersonTest(unittest.TestCase):
         self.assertEqual(self.p2.age, 20)
         self.assertEqual(self.p2.money, 1000)
 
-    def test_celebrates_birthday(self):
-        self.p3.celebrates_birthday()
+    # def test_celebrates_birthday(self):
+    #     self.p3.celebrates_birthday()
 
-        self.assertEqual(self.p3.age, 31)
+    #     self.assertEqual(self.p3.age, 31)
 
-    def test_earn_money(self):
-        self.p4.earns_money(500)
+    # def test_earn_money(self):
+    #     self.p4.earns_money(500)
 
-        self.assertEqual(self.p4.money, 600)
+    #     self.assertEqual(self.p4.money, 600)
 
-    def test_spend_money(self):
-        self.p3.spends_money(200)
+    # def test_spend_money(self):
+    #     self.p3.spends_money(200)
 
-        self.assertEqual(self.p3.money, 300)
+    #     self.assertEqual(self.p3.money, 300)
 
