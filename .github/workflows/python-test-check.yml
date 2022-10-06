@@ -35,13 +35,13 @@ jobs:
     - name: Github Action for testing the code
       run: coverage run -m unittest discover
 
-    - name: Github Action to calculate coverage percentage
-      run: |
-        echo "cov_perc_script='import sys, json; print($MIN_COVERAGE_REQUIRED <= json.load(sys.stdin)[\"totals\"][\"percent_covered\"])'" >> $GITHUB_ENV
+    # - name: Github Action to calculate coverage percentage
+    #   run: |
+    #     echo "cov_perc_script='import sys, json; print($MIN_COVERAGE_REQUIRED <= json.load(sys.stdin)[\"totals\"][\"percent_covered\"])'" >> $GITHUB_ENV
 
     - name: Github Action to retrieve coverage percentage
       id: total-coverage
       run: |
         # coverage json -q -o /dev/stdout | python -c ${{ env.cov_xperc_script }} 
-        coverage json -q -o /dev/stdout | python -c 'import sys, json; print(json.load(sys.stdin)["totals"]["percent_covered"] > '$MIN_COVERAGE_REQUIRED')'
+        coverage json -q -o /dev/stdout | python -c 'import sys, json; print("Coverage is: ", json.load(sys.stdin)["totals"]["percent_covered"]); return (json.load(sys.stdin)["totals"]["percent_covered"] > '$MIN_COVERAGE_REQUIRED')'
 
