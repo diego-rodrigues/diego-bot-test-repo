@@ -42,6 +42,6 @@ jobs:
     - name: Github Action to retrieve coverage percentage
       id: total-coverage
       run: |
-        # coverage json -q -o /dev/stdout | python -c ${{ env.cov_perc_script }} 
-        coverage json -q -o /dev/stdout | python -c 'import sys, json; print(95 <= json.load(sys.stdin)[\"totals\"][\"percent_covered\"])'
+        # coverage json -q -o /dev/stdout | python -c ${{ env.cov_xperc_script }} 
+        coverage json -q -o /dev/stdout | python -c 'import sys, json; print(json.load(sys.stdin)[\"totals\"][\"percent_covered\"])'
 
