@@ -16,3 +16,6 @@ To view coverage report:
 
 To generate HTML coverage report:
 `coverage html`
+
+To generate JSON coverage report:
+`coverage json -q -o /dev/stdout`
